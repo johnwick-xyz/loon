@@ -1,5 +1,5 @@
 [Script]
-http-request ^https?://api\.m\.jd\.com/api\?functionId=vvipclub_distributeBean_assist script-request-body script-path=https://raw.githubusercontent.com/curtinlv/gd/main/jk_script/zxd.js
+http-request ^https?://api\.m\.jd\.com/api\?functionId=vvipclub_distributeBean_assist script-path=https://raw.githubusercontent.com/curtinlv/gd/main/jk_script/zxd.js
 http-response ^https?://api\.m\.jd\.com/api\?functionId=distributeBeanActivityInfo requires-body=1,script-path=https://raw.githubusercontent.com/curtinlv/gd/main/jk_script/zxd.js
 
 [MITM]
