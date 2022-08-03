@@ -1,0 +1,11 @@
+#!name= Script
+
+[Script]
+# Emby
+http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice requires-body=true, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Emby.js, tag=embyUnlocked
+
+# 微信去广告
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js, tag=微信去广告
+
+[MITM]
+hostname = mp.weixin.qq.com, mb3admin.com
