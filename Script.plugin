@@ -15,5 +15,6 @@ http-response ^https?:\/\/account\.wps\.cn\/api\/v3\/mine\/vips requires-body=tr
 http-request ^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPowerCrack.js
 
 
+
 [MITM]
 hostname = mp.weixin.qq.com, mb3admin.com, api.m.jd.com, *.docer.wps.cn, vipapi.wps.cn, account.wps.cn
