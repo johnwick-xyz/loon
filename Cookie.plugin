@@ -2,11 +2,6 @@
 
 [Script]
 
-
-
-# 百度贴吧签到  打开百度贴吧App后(AppStore中国区, 非内部版)，点击"我的", 如通知成功获取cookie, 则可以使用此签到脚本.
-http-request https?:\/\/(c\.tieba\.baidu\.com|180\.97\.\d+\.\d+)\/c\/s\/login script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js
-
 # 华住会签到 手动签到获取Cookie即可使用
 http-request https:\/\/hweb-mbf\.huazhu\.com\/api\/signIn tag=华住会获取签到Cookie, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/hzh/hzh.js, requires-body=false
 
@@ -15,5 +10,5 @@ http-request ^https:\/\/ccsp-egmas.sf-express.com\/cx-app-member\/member\/app\/u
 
 [MITM]
 
-hostname= c.tieba.baidu.com, hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com
+hostname= hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com
 
