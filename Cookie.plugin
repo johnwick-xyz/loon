@@ -1,4 +1,6 @@
-# 此远程订阅用于解决loon任务脚本的cookie获取，您可在使用后手动将其禁用，以避免无意义的MITM。
+#!name= 签到脚本Cookie获取
+
+[Script]
 
 hostname= c.tieba.baidu.com, hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com
 
@@ -11,5 +13,6 @@ http-request https:\/\/hweb-mbf\.huazhu\.com\/api\/signIn tag=华住会获取签
 # 顺丰签到 APP 我的顺丰 > 任务中心 > 去签到
 http-request ^https:\/\/ccsp-egmas.sf-express.com\/cx-app-member\/member\/app\/user\/universalSign script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.cookie.js, requires-body=true, tag=Rewrite: 顺丰速运
 
+[MITM]
 
 
