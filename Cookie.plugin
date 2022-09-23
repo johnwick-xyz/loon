@@ -14,7 +14,7 @@ http-request ^https:\/\/i.meituan.com\/evolve\/signin\/signpost\/ script-path=ht
 # 美团买菜签到 APP > 我的 > 签到领币
 http-request ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/getWeekCheckInProgressBar\? requires-body=0,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/meituan/maicai_checkin.js,tag=美团买菜_获取cookie
 
-# 中国联通获取cookei APP > 点击首页的流量查询获取cookie。若弹出“获取cookie成功”即可
+# 中国联通获取cookie APP > 点击首页的流量查询获取cookie。若弹出“获取cookie成功”即可
 Rewrite: 获取联通cookie = type=http-request,pattern=^https:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/smartwisdomCommonNew,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js,script-update-interval=0
 
 [MITM]
