@@ -23,4 +23,4 @@ http-request ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/queryTas
 
 [MITM]
 
-hostname= hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com, mall.meituan.com
+hostname= hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com
