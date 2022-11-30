@@ -4,6 +4,8 @@
 #!author= ddgksf2013
 #!icon=https://raw.githubusercontent.com/deezertidal/private/main/icons/caiyun.png
 
+[Rewrite]
+^https:\/\/ad\.caiyunapp\.com\/ reject
 
 [Script]
 http-response https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Crack/caiyun.js, requires-body=true, timeout=10, tag=caiyun
