@@ -6,7 +6,7 @@
 http-request https:\/\/hweb-mbf\.huazhu\.com\/api\/signIn tag=华住会获取签到Cookie, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/hzh/hzh.js, requires-body=false
 
 # 顺丰签到 APP > 我的顺丰 > 任务中心 > 签到
-http-request ^https:\/\/ccsp-egmas.sf-express.com\/cx-app-member\/member\/app\/user\/universalSign script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.cookie.js, requires-body=true, tag=Rewrite: 顺丰速运获取cookie
+http-request ^https:\/\/ccsp-egmas.sf-express.com\/cx-app-member\/member\/app\/user\/universalSign script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.cookie.js, requires-body=true, tag=顺丰速运获取cookie
 
 # 美团签到 APP > 我的 > 领红包 > 签到
 http-request ^https:\/\/i.meituan.com\/evolve\/signin\/signpost\/ script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.cookie.js, requires-body=true
@@ -21,7 +21,7 @@ http-request ^https:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/
 http-request ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/queryTaskListInfoV.\? tag=美团买菜领取买菜币, requires-body=0,script-path=https://raw.githubusercontent.com/JoJoJotarou/myScript/master/script/meituan/mall.meituan.cookie.js
 
 # 朴朴签到cookie
-http-request https:\/\/cauth.pupuapi.com\/clientauth\/user\/verify_login script-path=https://raw.githubusercontent.com/lowking/Scripts/master/pupu/pupuCheckIn.js, requires-body=false, tag=朴朴签到cookie
+http-request ^https:\/\/cauth.pupuapi.com\/clientauth\/user\/verify_login script-path=https://raw.githubusercontent.com/lowking/Scripts/master/pupu/pupuCheckIn.js, requires-body=false, tag=朴朴签到cookie
 
 
 [MITM]
