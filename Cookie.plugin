@@ -20,7 +20,7 @@ http-request ^https:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/
 # 美团买菜买菜币各项活动
 http-request ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/queryTaskListInfoV.\? tag=美团买菜领取买菜币, requires-body=0,script-path=https://raw.githubusercontent.com/JoJoJotarou/myScript/master/script/meituan/mall.meituan.cookie.js
 
-# Bing积分cookie
+# Bing积分cookie 登录 https://rewards.bing.com 获取 Cookie
 http-request https:\/\/rewards\.bing\.com tag=Bing积分cookie, requires-body=0,script-path= https://raw.githubusercontent.com/lowking/Scripts/master/bing/bingPoint.js
 
 [MITM]
