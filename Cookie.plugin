@@ -2,9 +2,6 @@
 
 [Script]
 
-# 华住会签到 APP > 会员 > 签到
-http-request https:\/\/hweb-mbf\.huazhu\.com\/api\/signIn tag=华住会获取签到Cookie, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/hzh/hzh.js, requires-body=false
-
 # 顺丰签到 APP > 我的顺丰 > 任务中心 > 签到
 http-request ^https:\/\/ccsp-egmas.sf-express.com\/cx-app-member\/member\/app\/user\/universalSign script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.cookie.js, requires-body=true, tag=顺丰速运获取cookie
 
@@ -28,4 +25,4 @@ http-request ^https:\/\/mall\.telunsu\.net\/wxapi\/rest\/getUser\?openid=.+ scri
 
 [MITM]
 
-hostname= hweb-mbf.huazhu.com, ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com, yunbusiness.ccb.com, mall.telunsu.net
+hostname= ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com, yunbusiness.ccb.com, mall.telunsu.net
