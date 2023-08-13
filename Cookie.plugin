@@ -17,12 +17,9 @@ http-request ^https:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/
 # 美团买菜买菜币各项活动
 http-request ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/queryTaskListInfoV.\? tag=美团买菜领取买菜币, requires-body=0,script-path=https://raw.githubusercontent.com/JoJoJotarou/myScript/master/script/meituan/mall.meituan.cookie.js
 
-# 建行生活 建行生活APP -> 首页 -> 会员有礼 -> 签到
-http-request ^https:\/\/yunbusiness\.ccb\.com\/clp_coupon\/txCtrl\?txcode=A3341A040 tag=建行数据, script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,requires-body=1
-
 # 微信小程序 特仑苏官方商城 日常签到领积分，积分可以兑换实物 打开微信小程序->个人界面，若提示获取cookie成功则可以使用签到脚本
 http-request ^https:\/\/mall\.telunsu\.net\/wxapi\/rest\/getUser\?openid=.+ script-path=https://raw.githubusercontent.com/Sliverkiss/helloworld/master/Study/tls.js, timeout=10, tag=特仑苏官方商城获取token
 
 [MITM]
 
-hostname= ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com, yunbusiness.ccb.com, mall.telunsu.net
+hostname= ccsp-egmas.sf-express.com, i.meituan.com, mall.meituan.com, m.client.10010.com, mall.telunsu.net
