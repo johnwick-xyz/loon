@@ -6,6 +6,7 @@
 #!icon=https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png
 
 [Script]
+cron "*0 8,18 * * *" script-path=https://github.com/ChinaTelecomOperators/ChinaUnicom/releases/download/Prerelease-Alpha/10010.js
 http-request ^https?:\/\/10010v4\.com script-path=https://github.com/ChinaTelecomOperators/ChinaUnicom/releases/download/Prerelease-Alpha/10010.js, tag=10010v4
 
 [MITM]
