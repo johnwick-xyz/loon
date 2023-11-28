@@ -1,4 +1,6 @@
-#------------------ Loon 配置 ------------------
+#!name=建行生活签到获取cookie
+#!author=FoKit
+#!icon=img-url=https://raw.githubusercontent.com/johnwick-xyz/QuantumultX/main/icon/jhsh.png
 
 [MITM]
 hostname = yunbusiness.ccb.com
