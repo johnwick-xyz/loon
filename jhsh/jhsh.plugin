@@ -1,4 +1,5 @@
 #!name=建行生活签到获取cookie
+#!desc=建行生活APP -> 首页 -> 会员有礼 -> 签到 签到一次即可获取签到数据，默认领取外卖券，可在 BoxJS 配置奖品
 #!author=FoKit
 #!icon=img-url=https://raw.githubusercontent.com/johnwick-xyz/QuantumultX/main/icon/jhsh.png
 
