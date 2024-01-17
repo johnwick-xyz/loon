@@ -1,9 +1,12 @@
-# > 阿里云盘签到
+#!name=阿里网盘签到token获取
+#!desc=阿里网盘定时签到token获取。详情见仓库
+#!openUrl=https://github.com/zqzess/rule_for_quantumultX/tree/master/js/Mine/aDriveCheckIn
+#!author=zqzess
+#!homepage=https://github.com/zqzess/rule_for_quantumultX/tree/master/js/Mine/aDriveCheckIn
+#!icon=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png
 
 [Script]
-
-http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token script-path=https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, requires-body=true, timeout=10, tag=阿里云盘cookie, img-url=https://raw.githubusercontent.com/lowking/Scripts/master/doc/icon/aliYunPan.png
-cron "3 9 * * *" script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, timeout=60, tag=阿里云盘签到, img-url=https://raw.githubusercontent.com/lowking/Scripts/master/doc/icon/aliYunPan.png
+http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token script-path=https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, requires-body=true, timeout=10, enabled=true, tag=阿里网盘token获取
 
 [MITM]
-hostname = auth.alipan.com,auth.aliyundrive.com
+hostname = auth.alipan.com, auth.aliyundrive.com
