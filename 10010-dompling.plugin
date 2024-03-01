@@ -1,3 +1,6 @@
+#!name=联通获取Cookie
+
+
 [MITM]
 hostname = m.client.10010.com
 
