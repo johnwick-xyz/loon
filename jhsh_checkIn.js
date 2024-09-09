@@ -21,7 +21,7 @@ https://raw.githubusercontent.com/FoKit/Scripts/main/rewrite/get_jhsh_cookie.sgm
 hostname = yunbusiness.ccb.com
 
 [Script]
-建行数据 = type=http-request,pattern=^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
+建行数据 = type=http-request,pattern=^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341C128|autoLogin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
 
 建行生活 = type=cron,cronexp=17 7 * * *,timeout=60,script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js,script-update-interval=0
 
@@ -31,7 +31,7 @@ hostname = yunbusiness.ccb.com
 hostname = yunbusiness.ccb.com
 
 [Script]
-http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) tag=建行数据, script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js,requires-body=1
+http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341C128|autoLogin) tag=建行数据, script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js,requires-body=1
 
 cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,tag = 建行生活,enable=true
 
@@ -41,7 +41,7 @@ cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/ma
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|A3341C128|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
 
 [task_local]
 17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=建行生活, enabled=true
@@ -58,7 +58,7 @@ http:
   mitm:
     - "yunbusiness.ccb.com"
   script:
-    - match: ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin)
+    - match: ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341C128|autoLogin)
       name: 建行生活
       type: request
       require-body: true
@@ -181,7 +181,7 @@ function GetCookie() {
   debug($request.headers);
   debug($request.body);
   const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
-  if (/A3341A195/.test($request.url)) {
+  if (/A3341C128/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
     $.body = JSON.stringify($.body);
