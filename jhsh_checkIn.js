@@ -188,7 +188,7 @@ function GetCookie() {
     $.body = JSON.stringify($.body);
     console.log(`开始新增用户数据 ${$.body}`);
     $.setdata($.body, 'JHSH_BODY');
-    $.msg($.name, `🎉 建行生活签到数据获取成功。`);
+    $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
@@ -197,7 +197,7 @@ function GetCookie() {
         "DeviceId": $.DeviceId,
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
-      };
+      }
       $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
       console.log(JSON.stringify(autoLoginInfo) + "写入成功");
     } else {
@@ -205,10 +205,6 @@ function GetCookie() {
     }
   }
 }
-
-
-
-
 
 // 刷新 session
 async function autoLogin() {
@@ -224,19 +220,16 @@ async function autoLogin() {
     },
     body: $.ALBody
   }
-  debug(opt)
+  debug(opt);
   return new Promise(resolve => {
     $.post(opt, async (error, response, data) => {
       try {
         let result = $.toObj(data) || response.body;
         // 如果数据未加密，则 session 未过期
         if (result?.errCode) {
-          // {"newErrMsg":"未能处理您的请求。如有疑问，请咨询在线客服或致电95533","data":"","reqFlowNo":"","errCode":"0","errMsg":"session未失效,勿重复登录"}
-          // $.token = $.getdata('JHSH_TOKEN');
           console.log(`${result?.errMsg}`);
         } else {
           const set_cookie = response.headers['set-cookie'] || response.headers['Set-cookie'] || response.headers['Set-Cookie'];
-          // !$.isNode() ? $.setdata($.token, 'JHSH_TOKEN') : '';  // 数据持久化
           let new_cookie = $.toStr(set_cookie).match(/SESSION=([a-f0-9-]+);/);
           if (new_cookie) {
             $.token = new_cookie[0];
@@ -251,11 +244,14 @@ async function autoLogin() {
       } catch (error) {
         $.log(error);
       } finally {
-        resolve()
+        resolve();
       }
     });
-  })
+  });
 }
+
+// 其他函数保持不变...
+
 
 
 // 签到主函数
