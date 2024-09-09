@@ -31,7 +31,7 @@ hostname = yunbusiness.ccb.com
 hostname = yunbusiness.ccb.com
 
 [Script]
-http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|A3341A195|autoLogin) tag=建行数据, script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js,requires-body=1
+http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) tag=建行数据, script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js,requires-body=1
 
 cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,tag = 建行生活,enable=true
 
@@ -41,7 +41,7 @@ cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/ma
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
 
 [task_local]
 17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=建行生活, enabled=true
