@@ -183,24 +183,27 @@ function GetCookie() {
   const headers = ObjectKeys2LowerCase($request.headers); // 将 headers 的所有 key 转换为小写以兼容各个代理 App
 
   // 同时处理 A3341A038 和 A3341A195
-  if (/A3341A038|A3341A195/.test($request.url)) {
-    // 判断是哪个 URL，分别处理逻辑
-    if (/A3341A195/.test($request.url)) {
-      const additionalData = { /* 你需要处理的数据 */ };
-      $.setdata(JSON.stringify(additionalData), 'JHSH_ADDITIONAL_INFO');
-      console.log("A3341A195 数据处理成功");
-    }
+  if (/A3341A038/.test($request.url)) {
+    // 处理 A3341A038 的逻辑
+    $.body = JSON.parse($request.body);
+    $.body['MID'] = headers['mid'];
+    $.body = JSON.stringify($.body);
+    console.log(`开始新增用户数据 ${$.body}`);
+    $.setdata($.body, 'JHSH_BODY');
+    $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
 
-    if (/A3341A038/.test($request.url)) {
-      $.body = JSON.parse($request.body);
-      $.body['MID'] = headers['mid'];
-      $.body = JSON.stringify($.body);
-      console.log(`开始新增用户数据 ${$.body}`);
-      $.setdata($.body, 'JHSH_BODY');
-      $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
-    }
+  } 
   
-  } else if (/autoLogin/.test($request.url)) {
+  if (/A3341A195/.test($request.url)) {
+    // 处理 A3341A195 的逻辑
+    const additionalData = JSON.parse($request.body);
+    console.log(`获取到 A3341A195 的数据：${JSON.stringify(additionalData)}`);
+    $.setdata(JSON.stringify(additionalData), 'JHSH_ADDITIONAL_INFO');
+    console.log("A3341A195 数据处理成功");
+  }
+
+  // 处理 autoLogin 的逻辑
+  if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
     
@@ -217,6 +220,7 @@ function GetCookie() {
     }
   }
 }
+
 
 
 
