@@ -180,30 +180,44 @@ if (isGetCookie = typeof $request !== `undefined`) {
 function GetCookie() {
   debug($request.headers);
   debug($request.body);
-  const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
+  const headers = ObjectKeys2LowerCase($request.headers); // 将 headers 的所有 key 转换为小写以兼容各个代理 App
+
+  // 同时处理 A3341A038 和 A3341A195
   if (/A3341A038|A3341A195/.test($request.url)) {
-    $.body = JSON.parse($request.body);
-    $.body['MID'] = headers['mid'];
-    $.body = JSON.stringify($.body);
-    console.log(`开始新增用户数据 ${$.body}`);
-    $.setdata($.body, 'JHSH_BODY');
-    $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
+    // 判断是哪个 URL，分别处理逻辑
+    if (/A3341A195/.test($request.url)) {
+      const additionalData = { /* 你需要处理的数据 */ };
+      $.setdata(JSON.stringify(additionalData), 'JHSH_ADDITIONAL_INFO');
+      console.log("A3341A195 数据处理成功");
+    }
+
+    if (/A3341A038/.test($request.url)) {
+      $.body = JSON.parse($request.body);
+      $.body['MID'] = headers['mid'];
+      $.body = JSON.stringify($.body);
+      console.log(`开始新增用户数据 ${$.body}`);
+      $.setdata($.body, 'JHSH_BODY');
+      $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
+    }
+  
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
+    
     if ($.DeviceId && $.MBCUserAgent && $request.body) {
       autoLoginInfo = {
         "DeviceId": $.DeviceId,
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
-      }
+      };
       $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
-      console.log(JSON.stringify(autoLoginInfo) + "写入成功");
+      console.log(JSON.stringify(autoLoginInfo) + " 写入成功");
     } else {
       console.log("❌ autoLogin 数据获取失败");
     }
   }
 }
+
 
 
 // 刷新 session
