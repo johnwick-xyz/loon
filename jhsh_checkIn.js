@@ -17,7 +17,7 @@
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
 
 
 const $ = new Env('建行生活');
@@ -131,7 +131,7 @@ function GetCookie() {
   debug($request.headers);
   debug($request.body);
   const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
-  if (/A3341A038/.test($request.url)) {
+  if (/A3341A195/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
     $.body = JSON.stringify($.body);
