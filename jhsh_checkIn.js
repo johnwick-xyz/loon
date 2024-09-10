@@ -17,10 +17,8 @@
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
 
-
-*/
 
 const $ = new Env('建行生活');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -128,13 +126,12 @@ if (isGetCookie = typeof $request !== `undefined`) {
 }
 
 
-
 // 获取签到数据
 function GetCookie() {
   debug($request.headers);
   debug($request.body);
   const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
-  if (/A3341A195/.test($request.url)) {
+  if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
     $.body = JSON.stringify($.body);
@@ -158,6 +155,7 @@ function GetCookie() {
   }
 }
 
+
 // 刷新 session
 async function autoLogin() {
   let opt = {
@@ -172,16 +170,19 @@ async function autoLogin() {
     },
     body: $.ALBody
   }
-  debug(opt);
+  debug(opt)
   return new Promise(resolve => {
     $.post(opt, async (error, response, data) => {
       try {
         let result = $.toObj(data) || response.body;
         // 如果数据未加密，则 session 未过期
         if (result?.errCode) {
+          // {"newErrMsg":"未能处理您的请求。如有疑问，请咨询在线客服或致电95533","data":"","reqFlowNo":"","errCode":"0","errMsg":"session未失效,勿重复登录"}
+          // $.token = $.getdata('JHSH_TOKEN');
           console.log(`${result?.errMsg}`);
         } else {
           const set_cookie = response.headers['set-cookie'] || response.headers['Set-cookie'] || response.headers['Set-Cookie'];
+          // !$.isNode() ? $.setdata($.token, 'JHSH_TOKEN') : '';  // 数据持久化
           let new_cookie = $.toStr(set_cookie).match(/SESSION=([a-f0-9-]+);/);
           if (new_cookie) {
             $.token = new_cookie[0];
@@ -196,20 +197,17 @@ async function autoLogin() {
       } catch (error) {
         $.log(error);
       } finally {
-        resolve();
+        resolve()
       }
     });
-  });
+  })
 }
-
-// 其他函数保持不变...
-
 
 
 // 签到主函数
 async function main() {
   let opt = {
-    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A115`,
+    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A195`,
     headers: {
       "Mid": $.info?.MID,
       "Content-Type": "application/json",
