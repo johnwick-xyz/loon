@@ -10,15 +10,21 @@
  * 更新时间：2024-02-18  修复默认断签问题
  * 更新时间：2024-02-21  修复变量作用域导致无法自动领取签到奖励问题
  * 更新时间：2024-03-27  支持 Node.js 环境读取脚本同目录 box.dat 的 JHSH_SKIPDAY 缓存，内容格式：{"JHSH_SKIPDAY": "3"}
- * 更新时间：2024-09-09  按照大佬的脚本，更新了小龙马第五期的签到数据
 /*
+
+-------------- Quantumult X 配置 --------------
 
 [MITM]
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
 
+[task_local]
+17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=建行生活, enabled=true
+
+
+*/
 
 const $ = new Env('建行生活');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -131,7 +137,7 @@ function GetCookie() {
   debug($request.headers);
   debug($request.body);
   const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
-  if (/A3341A195/.test($request.url)) {
+  if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
     $.body = JSON.stringify($.body);
@@ -207,7 +213,7 @@ async function autoLogin() {
 // 签到主函数
 async function main() {
   let opt = {
-    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A195`,
+    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A115`,
     headers: {
       "Mid": $.info?.MID,
       "Content-Type": "application/json",
