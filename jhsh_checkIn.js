@@ -213,7 +213,7 @@ async function autoLogin() {
 // 签到主函数
 async function main() {
   let opt = {
-    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A115`,
+    url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A195`,
     headers: {
       "Mid": $.info?.MID,
       "Content-Type": "application/json",
