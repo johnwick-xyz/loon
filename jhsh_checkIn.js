@@ -18,10 +18,10 @@
 hostname = yunbusiness.ccb.com
 
 [rewrite_local]
-^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
+^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A195|autoLogin) url script-request-body https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js
 
 [task_local]
-17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=建行生活, enabled=true
+17 7 * * * https://raw.githubusercontent.com/johnwick-xyz/loon/main/jhsh_checkIn.js, tag=建行生活, enabled=true
 
 
 */
