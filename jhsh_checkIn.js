@@ -136,23 +136,30 @@ if (isGetCookie = typeof $request !== `undefined`) {
 function GetCookie() {
   debug($request.headers);
   debug($request.body);
-  const headers = ObjectKeys2LowerCase($request.headers);  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
+  const headers = ObjectKeys2LowerCase($request.headers);  // Convert all headers keys to lowercase to ensure compatibility across different proxy apps
+
   if (/A3341A195/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
     $.body = JSON.stringify($.body);
     console.log(`开始新增用户数据 ${$.body}`);
+
+    // Store the latest body data, overwriting the previous data
     $.setdata($.body, 'JHSH_BODY');
     $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
+
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
+
     if ($.DeviceId && $.MBCUserAgent && $request.body) {
       autoLoginInfo = {
         "DeviceId": $.DeviceId,
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
-      }
+      };
+
+      // Store the latest autoLoginInfo, overwriting the previous data
       $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
       console.log(JSON.stringify(autoLoginInfo) + "写入成功");
     } else {
