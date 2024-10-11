@@ -6,7 +6,7 @@
 [Script]
 WPS_checkin = type=cron,cronexp={{{CRONEXP}}},wake-system=1,timeout={{{TIMEOUT}}},debug=1,script-path=WPS_checkin.js,argument="AK={{{AK}}}&SK={{{SK}}}&MAX_RETRIES={{{MAX_RETRIES}}}"
 
-WPS_Cookie = type=http-request,pattern=https://moapi.wps.cn/app/ios/v1/app,requires-body=1,max-size=0,binary-body-mode=0,script-path=WPS_checkin.js
+WPS_Cookie = type=http-request,pattern=https://moapi.wps.cn/app/ios/v1/app,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/refs/heads/main/WPS_checkin.js
 
 
 [MITM]
