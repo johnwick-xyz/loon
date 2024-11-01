@@ -1,1 +1,19 @@
-1
+#!name = CityHunterChatTask
+#!desc = 🌸CityHunter Scripts 定时任务
+#!author = CityHunter [https://CityHunter]
+#!homePage = https://CityHunter
+#!data = 2024-11-01
+#!icon = https://CityHunter
+#!system = iOS,iPadOS
+#!loon_version = 3.2.3(753)
+
+[Argument]
+arg1 = input,"5 9 * * *",tag=百度贴吧app签到任务时间
+arg2 = switch,true,tag=百度贴吧app签到任务开关
+arg3 = input,"10 9 * * *",tag=柠季小程序签到任务时间
+arg4 = switch,true,tag=柠季小程序签到任务开关
+
+
+[Script]
+cron {arg1} script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, enable= {arg2}, tag=百度贴吧app签到
+cron {arg3} script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/ningji/ningji.js, enable= {arg4}, tag=柠季小程序签到
