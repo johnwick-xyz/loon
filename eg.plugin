@@ -7,3 +7,13 @@
 #!system = iOS,iPadOS
 #!loon_version = 3.2.3(753)
 
+[Argument]
+arg1 = switch,true,tag=百度贴吧app签到获取token
+
+[Script]
+http-request ^https?:\/\/(c\.tieba|tiebac)\.baidu\.com\/c\/s\/login script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, timeout=300, enable = {arg1}, tag=百度贴吧app签到获取token
+
+
+
+[MITM]
+hostname = c.tieba.baidu.com, tiebac.baidu.com
