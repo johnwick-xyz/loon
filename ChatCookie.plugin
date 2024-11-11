@@ -17,7 +17,7 @@ arg4 = switch,treu,tag=中国联通app签到获取token
 http-request ^https?:\/\/(c\.tieba|tiebac)\.baidu\.com\/c\/s\/login script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, timeout=300, enable = {arg1}, tag=百度贴吧app签到获取token
 http-response ^https?:\/\/pos\.meituan\.com\/api\/v1\/crm\/frontend\/campaign\/display script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/ningji/ningji.js, requires-body=true, timeout=10, enable = {arg2}, tag=柠季小程序签到获取token
 http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, requires-body=true, timeout=10, enable = {arg3}, tag=建行生活app签到获取token
-http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, enable = {arg4}, tag=中国联通app签到获取token
+http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, requires-body=true, timeout=10, enable = {arg4}, tag=中国联通app签到获取token
 
 
 [MITM]
