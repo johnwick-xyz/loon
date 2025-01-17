@@ -8,15 +8,17 @@
 #!loon_version = 3.2.3(753)
 
 [Argument]
-arg1 = input,"5 9 * * *",tag=百度贴吧app签到任务时间
+arg1 = input,"1 9 * * *",tag=百度贴吧app签到任务时间
 arg2 = switch,true,tag=百度贴吧app签到任务开关
-arg3 = input,"10 9 * * *",tag=柠季小程序签到任务时间
+arg3 = input,"2 9 * * *",tag=柠季小程序签到任务时间
 arg4 = switch,true,tag=柠季小程序签到任务开关
-arg5 = input,"50 9 * * *",tag=奶茶多合一签到任务时间
+arg5 = input,"3 9 * * *",tag=奶茶多合一签到任务时间
 arg6 = switch,true,tag=奶茶多合一小程序签到任务开关
-
+arg7 = input,"4 9 * * *",tag=奈雪点单小程序签到任务时间
+arg8 = switch,true,tag=奈雪点单小程序签到任务开关
 
 [Script]
 cron {arg1} script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, enable= {arg2}, tag=百度贴吧app签到
 cron {arg3} script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/ningji/ningji.js, enable= {arg4}, tag=柠季小程序签到
 cron {arg5} script-path=https://raw.githubusercontent.com/johnwick-xyz/QuantumultX/refs/heads/main/js/teaMilk.js, enable= {arg6}, tag=奶茶多合一小程序签到
+cron {arg7} script-path=https://raw.githubusercontent.com/johnwick-xyz/QuantumultX/refs/heads/main/js/naixue.js, enable= {arg8}, tag=奈雪点单小程序签到
