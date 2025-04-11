@@ -10,14 +10,17 @@
 [Argument]
 arg1 = switch,true,tag=百度贴吧app签到获取token
 arg2 = switch,treu,tag=BiliBili每日等级任务app获取token
-arg3 = switch,treu,tag=建行生活app签到获取token
-arg4 = switch,treu,tag=中国联通app签到获取token
+arg3 = switch,treu,tag=中国联通app签到获取token
+arg4 = switch,treu,tag=奶茶多合一小程序签到获取token
+arg5 = switch,treu,tag=奶茶多合一小程序2签到获取token
 
 [Script]
 http-request ^https?:\/\/(c\.tieba|tiebac)\.baidu\.com\/c\/s\/login script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, timeout=300, enable = {arg1}, tag=百度贴吧app签到获取token
 http-request ^https?:\/\/app\.bilibili\.com\/x\/resource\/fingerprint\? script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js, enable = {arg2}, tag=BiliBili每日等级任务app获取token
-http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, requires-body=true, timeout=10, enable = {arg3}, tag=建行生活app签到获取token
-http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, timeout=60, enable = {arg4}, tag=中国联通app签到获取token
+http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, timeout=60, enable = {arg3}, tag=中国联通app签到获取token
+http-response ^https:\/\/(webapi|webapi2)\.qmai\.cn\/web\/seller\/(oauth\/flash-sale-login|account\/login-minp) script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60, enable = {arg4}, tag=tag=奶茶多合一小程序签到获取token
+http-request ^https:\/\/(webapi|webapi2|qmwebapi)\.qmai\.cn\/web\/(catering\/integral|cmk-center)\/sign\/(signIn|takePartInSign) script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60, enable = {arg5}, tag=奶茶多合一小程序2
+
 
 [MITM]
-hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com
+hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com, webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn
