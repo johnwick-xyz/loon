@@ -19,7 +19,7 @@ arg4 = switch,treu,tag=亚朵APP签到获取token
 http-request ^https?:\/\/(c\.tieba|tiebac)\.baidu\.com\/c\/s\/login script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, timeout=300, enable = {arg1}, tag=百度贴吧app签到获取token
 http-request ^https?:\/\/app\.bilibili\.com\/x\/resource\/fingerprint\? script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js, enable = {arg2}, tag=BiliBili每日等级任务app获取token
 http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, timeout=60, enable = {arg3}, tag=中国联通app签到获取token
-http-request ^https:\/\/miniapp\.yaduo\.com\/atourlife\/signIn\/signIn.+ script-path=https://raw.githubusercontent.com/Sliverkiss/helloworld/master/Study/adjd.js, timeout=10, enable = {arg4}, tag=亚朵app获取token
+http-request ^https:\/\/miniapp\.yaduo\.com\/atourlife\/signIn\/signIn.+ script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/refs/heads/main/js/ad.js, timeout=10, enable = {arg4}, tag=亚朵app获取token
 #http-request ^https:\/\/(webapi|webapi2|qmwebapi)\.qmai\.cn\/web\/(catering\/integral|cmk-center)\/sign\/(signIn|takePartInSign) script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60, enable = {arg5}, tag=奶茶多合一小程序2
 
 
