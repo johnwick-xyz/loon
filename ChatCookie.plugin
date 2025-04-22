@@ -24,4 +24,4 @@ http-request ^https:\/\/miniapp\.yaduo\.com\/atourlife\/signIn\/signIn.+ script-
 
 
 [MITM]
-hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com, webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn
+hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com, webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn, miniapp.yaduo.com
