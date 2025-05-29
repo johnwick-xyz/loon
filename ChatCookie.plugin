@@ -12,7 +12,7 @@ arg1 = switch,true,tag=百度贴吧app签到获取token
 arg2 = switch,treu,tag=BiliBili每日等级任务app获取token
 arg3 = switch,treu,tag=中国联通app签到获取token
 arg4 = switch,treu,tag=亚朵APP签到获取token
-#arg5 = switch,treu,tag=奶茶多合一小程序2签到获取token
+arg5 = switch,treu,tag=华住APP签到获取token
 
 
 [Script]
@@ -20,8 +20,8 @@ http-request ^https?:\/\/(c\.tieba|tiebac)\.baidu\.com\/c\/s\/login script-path=
 http-request ^https?:\/\/app\.bilibili\.com\/x\/resource\/fingerprint\? script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js, enable = {arg2}, tag=BiliBili每日等级任务app获取token
 http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, timeout=60, enable = {arg3}, tag=中国联通app签到获取token
 http-request ^https:\/\/miniapp\.yaduo\.com\/atourlife\/signIn\/signIn.+ script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/refs/heads/main/js/ad.js, timeout=10, enable = {arg4}, tag=亚朵app获取token
-#http-request ^https:\/\/(webapi|webapi2|qmwebapi)\.qmai\.cn\/web\/(catering\/integral|cmk-center)\/sign\/(signIn|takePartInSign) script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60, enable = {arg5}, tag=奶茶多合一小程序2
+http-request https:\/\/appgw\.huazhu\.com\/game\/sign_header script-path=https://raw.githubusercontent.com/evilbutcher/QuantumultX/main/check_in/hzh/hzh.js, requires-body=false, enable = {arg5}, tag=华住APP签到获取token
 
 
 [MITM]
-hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com, webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn, miniapp.yaduo.com
+hostname = c.tieba.baidu.com, tiebac.baidu.com, pos.meituan.com, yunbusiness.ccb.com, m.client.10010.com, app.bilibili.com, m.bilibili.com, webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn, miniapp.yaduo.com, appgw.huazhu.com
