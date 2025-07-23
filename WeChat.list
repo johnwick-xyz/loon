@@ -1,0 +1,11 @@
+# NAME: WeChat-cn
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2025-07-23 09:18:25
+# DOMAIN: 2
+# DOMAIN-SUFFIX: 0
+# IP-ASN: 0
+# USER-AGENT: 0
+# TOTAL: 2
+DOMAIN,dns.weixin.qq.com.cn
+DOMAIN,dns.weixin.qq.com
