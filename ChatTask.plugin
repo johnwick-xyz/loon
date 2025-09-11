@@ -22,6 +22,9 @@ arg11 = input,"6 9 * * *",tag=华住APP签到任务时间
 arg12 = switch,true,tag=华住APP签到任务开关
 arg13 = input,"7 9 * * *",tag=小蚕霸王餐APP签到任务时间
 arg14 = switch,true,tag=小蚕霸王餐APP签到任务开关
+arg15 = input,"18 18 * * *",tag=小米刷步任务时间
+arg16 = switch,true,tag=小米刷步任务开关
+
 
 [Script]
 cron {arg1} script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, enable= {arg2}, tag=百度贴吧app签到
@@ -31,3 +34,4 @@ cron {arg7} script-path=https://raw.githubusercontent.com/johnwick-xyz/Quantumul
 cron {arg9} script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/zeeho/zeeho.js, enable= {arg10}, tag=极核APP签到
 cron {arg11} script-path=https://raw.githubusercontent.com/evilbutcher/QuantumultX/main/check_in/hzh/hzh.js, enable= {arg12}, tag=华住APP签到
 cron {arg13} script-path=https://raw.githubusercontent.com/johnwick-xyz/loon/refs/heads/main/xcbwc.js, enable= {arg14}, tag=小蚕霸王餐APP签到
+cron {arg15} script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/mi/step.js, enable= {arg16}, tag=小米刷步
