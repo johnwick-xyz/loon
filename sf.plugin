@@ -4,4 +4,4 @@ hostname = %APPEND% ccsp-egmas.sf-express.com
 [Script]
 request if ${url} ~= /^https:\/\/ccsp-egmas\.sf-express\.com\/cx-app-member\/member\/app\/user\/universalSign/i then script("https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.cookie.js") with tag="Rewrite: 顺丰速运", requires_body=true
 
-cron "1 0 * * *" then script("https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.js") with tag="顺丰速运"
+cron "1 10 * * *" then script("https://raw.githubusercontent.com/chavyleung/scripts/master/sfexpress/sfexpress.js") with tag="顺丰速运"
