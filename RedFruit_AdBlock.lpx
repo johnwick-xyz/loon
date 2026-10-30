@@ -1,0 +1,35 @@
+#!name = 红果短剧去广告
+#!desc = 拦截红果短剧常见穿山甲及字节广告域名；基础规则默认启用，激进规则可按需开启
+#!author = ChatGPT
+#!tag = 去广告,红果短剧
+#!system = iOS
+#!date = 2026-10-30
+#!type = normal
+
+[Rule]
+# ===== 基础规则：穿山甲 / Pangle 广告专属域名 =====
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,log-api.pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+DOMAIN-KEYWORD,reading-ad,REJECT
+DOMAIN-KEYWORD,qznovelvod-ad,REJECT
+
+# ===== 可选增强规则：可能同时影响抖音、番茄等字节系 App =====
+# 如基础规则无效，可取消下面规则的注释后测试
+# DOMAIN-KEYWORD,ads0-normal-,REJECT
+# DOMAIN-KEYWORD,ads1-normal-,REJECT
+# DOMAIN-KEYWORD,ads2-normal-,REJECT
+# DOMAIN-KEYWORD,ads3-normal-,REJECT
+# DOMAIN-KEYWORD,ads4-normal-,REJECT
+# DOMAIN-KEYWORD,ads5-normal-,REJECT
+# DOMAIN-KEYWORD,minigame,REJECT
+
+# ===== 高强度规则：可能影响字节系 App 的 DNS 解析，不建议默认开启 =====
+# 仅在确认广告通过该域名请求时再单独测试
+# DOMAIN-SUFFIX,dig.bdurl.net,REJECT
