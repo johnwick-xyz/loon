@@ -5,6 +5,7 @@
 #!type = normal
 
 [General]
+ipv6-vif = off
 include-tun = 10.7.0.1/32
 
 [IP Rewrite]
